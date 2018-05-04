@@ -1,6 +1,6 @@
 public class Test{
   public static void main(String[] args)
   {
-    System.out.println("Connection. Ready!.");
+    System.out.println("Connection. Ready");
   }
 }
