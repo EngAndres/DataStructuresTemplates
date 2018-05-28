@@ -1,2 +1,2 @@
 # DataStructuresTemplates
-This is a test
+This is a repository of several templates of Data Structures.
