@@ -19,7 +19,7 @@ package Trees;
  */
 public class BinaryTree {
 	
-	BinaryNode root = null; //
+	BinaryTreeNode root = null; //
 	 
 	/**
 	 * 
@@ -41,33 +41,30 @@ public class BinaryTree {
 	 * 
 	 * @param value
 	 */
-	public void insert(int value)
+	public void insert(BinaryTreeNode node)
 	{
 		if(isEmpty())
 		{
-			BinaryNode newNode = new BinaryNode(value);
-			root = newNode;
+			root = node;
 		}
 		else
 		{
-			BinaryNode temp = root;
-			BinaryNode parent = root;
+			BinaryTreeNode temp = root;
+			BinaryTreeNode parent = root;
 			
 			while(temp != null)
 			{
 				parent = temp;
-				if(value < temp.value)
-					temp = (BinaryNode)temp.getLeft();
+				if(node.isLessThan(temp))
+					temp = temp.getLeft();
 				else
-					temp = (BinaryNode)temp.getRight();
+					temp = temp.getRight();
 			}
 			
-			BinaryNode newNode = new BinaryNode(value);
-			
-			if(value < parent.value)
-				parent.setLeft(newNode);
+			if(node.isLessThan(parent))
+				parent.setLeft(node);
 			else
-				parent.setRigth(newNode);
+				parent.setRight(node);
 		}
 	}
 	
@@ -77,9 +74,22 @@ public class BinaryTree {
 	 * @param value
 	 * @return
 	 */
-	public BinaryNode search(int value)
+	public BinaryTreeNode search(BinaryTreeNode nodeToSearch)
 	{
-		return null;
+		BinaryTreeNode temp = root;
+		
+		while(temp != null)
+		{
+			if(temp.isEqual(nodeToSearch))
+				break;
+			else
+				if(nodeToSearch.isLessThan(temp))
+					temp = temp.getLeft();
+				else
+					temp = temp.getRight();
+		}
+		
+		return temp;
 	}
 	
 	
@@ -87,7 +97,7 @@ public class BinaryTree {
 	 * 
 	 * @param value
 	 */
-	public void delete(int value)
+	public void delete(BinaryTreeNode nodeToDelete)
 	{
 		
 	}
@@ -98,7 +108,7 @@ public class BinaryTree {
 	 * @param node
 	 * @return
 	 */
-	public boolean isLeaf(BinaryNode node)
+	public boolean isLeaf(BinaryTreeNode node)
 	{
 		return (node.getLeft() == null && node.getRight() == null) ? true : false;
 	}
@@ -109,7 +119,7 @@ public class BinaryTree {
 	 * @param node
 	 * @return
 	 */
-	public boolean oneChild(TreeNode node)
+	public boolean oneChild(BinaryTreeNode node)
 	{
 		return (node.getLeft() != null && node.getRight() != null) ? false : true;
 	}
@@ -119,13 +129,13 @@ public class BinaryTree {
 	 * 
 	 * @param node
 	 */
-	public void preorder(BinaryNode node)
+	public void preorder(BinaryTreeNode node)
 	{
 		if(node != null)
 		{
 			System.out.print(node.toString() + " ");
-			preorder((BinaryNode)node.getLeft());
-			preorder((BinaryNode)node.getRight());
+			preorder(node.getLeft());
+			preorder(node.getRight());
 		}
 	}
 	
@@ -134,8 +144,15 @@ public class BinaryTree {
 	 * 
 	 * @param node
 	 */
-	public void postorder(TreeNode node)
+	public void postorder(BinaryTreeNode node)
 	{
+		if(node != null)
+		{
+			postorder(node.getLeft());
+			postorder(node.getRight());
+			System.out.print(node.toString() + " ");
+		}
+		
 	}
 	
 	
@@ -143,7 +160,14 @@ public class BinaryTree {
 	 * 
 	 * @param node
 	 */
-	public void inorder(TreeNode node)
+	public void inorder(BinaryTreeNode node)
 	{
+		if(node != null)
+		{
+			inorder(node.getLeft());
+			System.out.print (node.toString() + " ");
+			inorder(node.getRight());
+		}
+			
 	}
 }

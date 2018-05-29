@@ -16,61 +16,61 @@ package Trees;
  * This class represents the behavior of Binary Tree Node
  * @author MSc. Carlos Andres Sierra, PhD. student
  */
-public class BinaryNode implements TreeNode {
+public class BinaryNodeExample implements BinaryTreeNode {
 
 	public int value;
-	public BinaryNode left;
-	public BinaryNode right;
+	public BinaryNodeExample left;
+	public BinaryNodeExample right;
 	
-	public  BinaryNode(int value)
+	public  BinaryNodeExample(int value)
 	{
 		this.value = value;
 	}
 	
 	
 	@Override
-	public void setLeft(TreeNode node) 
+	public void setLeft(BinaryTreeNode node) 
 	{
-		left = (BinaryNode)node;
+		left = (BinaryNodeExample)node;
 	}
 
 	
 	@Override
-	public TreeNode getLeft() 
+	public BinaryTreeNode getLeft() 
 	{
 		return left;
 	}
 
 	
 	@Override
-	public void setRigth(TreeNode node)
+	public void setRight(BinaryTreeNode node)
 	{
-		right = (BinaryNode)node;
+		right = (BinaryNodeExample)node;
 	}
 
 	
 	@Override
-	public TreeNode getRight() 
+	public BinaryTreeNode getRight() 
 	{
 		return right;
 	}
 
 	
 	@Override
-	public TreeNode clone()
+	public BinaryTreeNode clone()
 	{
 		return null;
 	}
 
 	
 	@Override
-	public boolean isEqual(TreeNode node) 
+	public boolean isEqual(BinaryTreeNode node) 
 	{
 		return false;
 	}
 
 	@Override
-	public boolean isLessThan(TreeNode node)
+	public boolean isLessThan(BinaryTreeNode node)
 	{
 		return false;
 	}

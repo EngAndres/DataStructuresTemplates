@@ -17,50 +17,42 @@ package Trees;
  * This class represents the behavior of a Tree Node Abstraction
  * @author MSc. Carlos Andres Sierra, PhD. student
  */
-public interface TreeNode {
+public interface BinaryTreeNode {
 
 		
 	/**
 	 * 
 	 * @param node
 	 */
-	public void setLeft(TreeNode node);
+	public void setLeft(BinaryTreeNode node);
 	
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public TreeNode getLeft();
+	public BinaryTreeNode getLeft();
 	
 	
 	/**
 	 * 
 	 * @param node
 	 */
-	public void setRigth(TreeNode node);
+	public void setRight(BinaryTreeNode node);
 	
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public TreeNode getRight();
+	public BinaryTreeNode getRight();
 	
 	
 	/**
 	 * 
 	 * @return
 	 */
-	public TreeNode clone();
-	
-	
-	/**
-	 * 
-	 * @param node
-	 * @return
-	 */
-	public boolean isEqual(TreeNode node);
+	public BinaryTreeNode clone();
 	
 	
 	/**
@@ -68,7 +60,15 @@ public interface TreeNode {
 	 * @param node
 	 * @return
 	 */
-	public boolean isLessThan(TreeNode node);	
+	public boolean isEqual(BinaryTreeNode node);
+	
+	
+	/**
+	 * 
+	 * @param node
+	 * @return
+	 */
+	public boolean isLessThan(BinaryTreeNode node);	
 	
 	
 	/**
