@@ -23,9 +23,10 @@ public class GUI_Processing extends PApplet {
 	/*
 	 * 
 	 */
-	public int width = 900, height = 600, size = 3, rule = 90;
+	public int width = 900, height = 600, size = 10, rule = 90;
 	public int rows = height / size, columns = width / size;
-	ChaosFromFractal chaos = new ChaosFromFractal(rule, rows, columns);
+	//ChaosFromFractal chaos = new ChaosFromFractal(rule, rows, columns);
+	GameOfLife life = new GameOfLife(rows, columns, 0.08);
 	
 	/**
 	 * 
@@ -44,6 +45,7 @@ public class GUI_Processing extends PApplet {
 		background(0);
 		stroke(20);
 		
+		/* For chaos 
 		for(int i = 0; i < rows; i++)
 			for(int j = 0; j < columns; j++)
 			{
@@ -56,10 +58,27 @@ public class GUI_Processing extends PApplet {
 			}
 				
 		chaos.iterations();
+		*/ 
+		
+		//For Game of Life
+		for(int i = 0; i < rows; i++)
+		{
+			for(int j = 0; j < columns; j++)
+			{
+				if(life.board[i][j] == 0)
+					fill(0);
+				else
+					fill(255);
+				
+				rect(j * size, i * size, size, size);
+			}
+		}
+		
+		life.iterations();
 		
 		try
 		{
-			Thread.sleep(2);
+			Thread.sleep(100);
 		}
 		catch(Exception ex) {}
 	}

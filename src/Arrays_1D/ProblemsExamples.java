@@ -1,7 +1,5 @@
 package Arrays_1D;
 
-import java.io.*;
-
 /*
 # Examples of Problems Solutions based on Arrays.
 #
@@ -136,23 +134,4 @@ public class ProblemsExamples {
 		
 		return lost_number;
 	}
-	
-	
-	/**
-	 * 
-	 * @param args
-	 */
-	public static void main(String[] args)
-	{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		
-		try
-		{
-			
-		}
-		catch(Exception ex) {}
-	}
-	
-
 }
