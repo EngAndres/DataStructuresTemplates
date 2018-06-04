@@ -20,6 +20,7 @@ public class Queue {
 	
 	Node head = null; //
 	
+	public Queue() {}
 	
 	/**
 	 * 

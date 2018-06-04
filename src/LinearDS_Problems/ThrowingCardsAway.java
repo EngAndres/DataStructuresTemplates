@@ -24,11 +24,19 @@ import LinearDataStructures.Queue;
  */
 public class ThrowingCardsAway {
 
+	/**
+	 * 
+	 */
 	public class ProblemNode implements Node
 	{
 		public int value;
 		public ProblemNode next = null;
 		
+		
+		/**
+		 * 
+		 * @param value
+		 */
 		public ProblemNode(int value) 
 		{
 			this.value = value;
@@ -75,9 +83,17 @@ public class ThrowingCardsAway {
 	}
 	
 	
+	/**
+	 * 
+	 */
 	public ThrowingCardsAway() {}
 	
 	
+	/**
+	 * 
+	 * @param number
+	 * @return
+	 */
 	public String solution(int number) 
 	{
 		Queue queue = new Queue();
@@ -104,6 +120,10 @@ public class ThrowingCardsAway {
 	}
 	
 	
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		int number = 0;

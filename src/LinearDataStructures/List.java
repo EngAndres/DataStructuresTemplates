@@ -21,6 +21,9 @@ public class List {
 
 	public Node head = null;
 	
+	
+	public List() {}
+	
 	/**
 	 * 
 	 * @return
@@ -376,5 +379,29 @@ public class List {
 	public Node get(int index)
 	{
 		return null;
+	}
+	
+	
+	/**
+	 * 
+	 * @param node
+	 * @return
+	 */
+	public int indexOf(Node node)
+	{
+		int index = -1;
+		Node temp = head;
+		
+		while(temp != null)
+		{
+			index += 1;
+			if(temp.isEqual(node))
+				return index;
+			
+			temp = temp.getNext();
+		}
+		 
+		index = -1;
+		return index;
 	}
 }

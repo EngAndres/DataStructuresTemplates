@@ -22,6 +22,7 @@ public class Stack {
 	
 	public Node top = null; //top
 	
+	public Stack() {}
 	
 	/**
 	 * 
