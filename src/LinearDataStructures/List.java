@@ -265,7 +265,9 @@ public class List {
 	public List quickSort(List unsorted)
 	{
 		if(unsorted.length() <= 1)
-			return unsorted;
+		{
+			return unsorted;	
+		}
 		else
 		{
 			Node pivot = unsorted.head;
@@ -274,14 +276,20 @@ public class List {
 			List less_elements = new List();
 			List greater_elements = new List();
 			
-			if(temp.isLessThan(pivot))
-				less_elements.insertAtEnd(temp.clone());
-			else
-				greater_elements.insertAtEnd(temp.clone());
+			while(temp != null)
+			{
+				if(temp.isLessThan(pivot))
+					less_elements.insertAtEnd(temp.clone());
+				else
+					greater_elements.insertAtEnd(temp.clone());
+				
+				temp = temp.getNext();
+			}
 			
+			pivot.setNext(null);
 			less_elements = quickSort(less_elements);
-			pivot.setNext( quickSort(greater_elements).head );
 			less_elements.insertAtEnd(pivot);
+			less_elements.insertAtEnd( quickSort(greater_elements).head );
 			
 			return less_elements;
 		}

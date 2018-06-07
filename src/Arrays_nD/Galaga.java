@@ -23,7 +23,7 @@ public class Galaga extends PApplet {
 			for(int j = 1; j < width_; j += 2)
 				board[1][j] = 1;
 			
-			for(int j = 2; j < width_ - 1; j += 2)
+			for(int j = 2; j < width_ - 1; j 	+= 2)
 				board[2][j] = 1;
 			
 			for(int j = 3; j < width_ - 2; j += 2)
@@ -86,6 +86,9 @@ public class Galaga extends PApplet {
 					else
 						if(board[i][j] == 4)
 							board[i][j] = 0;
+			
+			for(int j = 0; j < width_; j++)
+				board[0][j] = 0;
 		}
 		
 		public void move_spaceship(int move)
@@ -135,7 +138,7 @@ public class Galaga extends PApplet {
 			{
 				if(logic_game.board[i][j] == 1)
 				{
-					fill(100,10,10);
+					fill(200,10,10);
 					triangle(j * size, i * size, (j * size) + size, i * size, (j * size) + (size / 2), (i * size) + size);
 				}
 				else
