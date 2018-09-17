@@ -147,6 +147,13 @@ public class Main {
 		
 		try
 		{
+			FileWriter fw = new FileWriter("Students.txt");
+			BufferedWriter bwf = new BufferedWriter( fw );
+			
+			String students_initial = "Pepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0";
+			bwf.write(students_initial);
+			bwf.flush();
+			
 			do
 			{
 				bw.write( menu() );
