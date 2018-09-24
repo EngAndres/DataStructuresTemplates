@@ -79,6 +79,6 @@ public class Student implements Node {
 	public String toString()
 	{
 		return "Nombre: " + this.name + "\tApellidos: " + this.surname 
-				+ "\tID: " + this.id + "\n";
+				+ "\tID: " + this.id + "\tPrograma: " + this.program + "\n";
 	}
 }

@@ -142,18 +142,57 @@ public class Main {
 		
 	}
 	
+	
+	public static void save_studentsList()
+	{
+		try
+		{
+			FileWriter fw_students = new FileWriter("Students.umd");
+			BufferedWriter bw_students = new BufferedWriter( fw_students );
+			
+			Student temp = (Student)students.head;
+			
+			while(temp != null)
+			{
+				bw_students.write(temp.toString());
+				temp = (Student)temp.getNext();
+			}
+			
+			bw_students.flush();
+			
+		}
+		catch(Exception ex) {}
+		
+	}
+	
+	public static void load_students()
+	{
+		try
+		{
+			FileReader fr_students = new FileReader("Students.umd");
+			BufferedReader br_students = new BufferedReader( fr_students );
+			
+			String input = br_students.readLine();
+			String[] data;
+			
+			while(input != "")
+			{
+				data = input.split("\t");
+				students.insertAtEnd(new Student(data[0].split(" ")[1], data[1].split(" ")[1], data[2].split(" ")[1], Integer.parseInt(data[3].split(" ")[1]), data[4].split(" ")[1]));
+				
+				input = br_students.readLine();
+			}
+		}
+		catch(Exception ex) {}
+	}
+	
 	public static void main(String[] args) {
 		int menu_option;
+		load_students();
+		students.printList();
 		
 		try
 		{
-			FileWriter fw = new FileWriter("Students.txt");
-			BufferedWriter bwf = new BufferedWriter( fw );
-			
-			String students_initial = "Pepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0\nPepito,Perez,123,21,ISUM,0.0";
-			bwf.write(students_initial);
-			bwf.flush();
-			
 			do
 			{
 				bw.write( menu() );
@@ -179,6 +218,8 @@ public class Main {
 				}
 			}
 			while(menu_option != 6);
+			
+			save_studentsList();
 		}
 		catch(Exception ex) {}
 		
